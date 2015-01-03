@@ -27,7 +27,8 @@ nette:
 
 
 services:
-	router: App\RouterFactory::createRouter
+	- App\RouterFactory(%productionMode%)
+	router: @App\RouterFactory::createRouter
 
 	twitterClient:
 		class: Twitter(%twitter.consumerKey%, %twitter.consumerSecret%, %twitter.accessToken%, %twitter.accessTokenSecret%)

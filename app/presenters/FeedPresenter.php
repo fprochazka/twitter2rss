@@ -25,7 +25,7 @@ class FeedPresenter extends BasePresenter
 	public function renderFavorites()
 	{
 		$this->template->title = 'Favorites of @' . $this->twitter->getUser()->screen_name;
-		$this->template->tweets = $this->twitter->getFavorites();
+		$this->template->tweets = $this->twitter->getFavorites('5 minutes');
 		$this->setView('tweets');
 	}
 

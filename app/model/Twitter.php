@@ -73,9 +73,9 @@ class Twitter extends Nette\Object
 
 
 
-	public function getFavorites()
+	public function getFavorites($cacheExpire = NULL)
 	{
-		$list = $this->get('favorites/list.json', ['count' => 200, 'screen_name' => $this->getUser()->screen_name]);
+		$list = $this->get('favorites/list.json', ['count' => 200, 'screen_name' => $this->getUser()->screen_name], NULL, $cacheExpire);
 
 		return array_map(function ($tweet) {
 			$tweet->created_at = (new \DateTime($tweet->created_at))

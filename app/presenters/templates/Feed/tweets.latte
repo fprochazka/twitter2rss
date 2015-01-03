@@ -9,7 +9,6 @@
 		<atom:link href="{plink //this}" rel="self" type="application/rss+xml"/>
 
 		<item n:foreach="$tweets as $tweet">
-			{*{?dump($tweet)}*}
 			<title>@{$tweet->user->screen_name}: {$tweet->text|truncate:50|strip}</title>
 			<pubDate>{$tweet->created_at|rssDate}</pubDate>
 			<link></link>

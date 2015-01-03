@@ -30,13 +30,6 @@ class FeedPresenter extends BasePresenter
 
 
 
-	public function renderTimeline()
-	{
-
-	}
-
-
-
 	public function renderFavorites()
 	{
 		$this->template->title = 'Favorites of @' . $this->twitter->getUser()->screen_name;

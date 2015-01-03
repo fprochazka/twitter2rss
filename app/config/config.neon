@@ -30,6 +30,14 @@ services:
 	- App\RouterFactory(%productionMode%)
 	router: @App\RouterFactory::createRouter
 
+	nette.latte:
+		setup:
+			- setAutoRefresh(TRUE)
+
+	nette.latteFactory:
+		setup:
+			- setAutoRefresh(TRUE)
+
 	twitterClient:
 		class: Twitter(%twitter.consumerKey%, %twitter.consumerSecret%, %twitter.accessToken%, %twitter.accessTokenSecret%)
 		setup:

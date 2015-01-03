@@ -28,7 +28,6 @@ class HomepagePresenter extends BasePresenter
 //		dump($this->twitter->getFollowing());
 //		dump($this->twitter->getOwnLists());
 //		dump($this->twitter->getFavorites());
-
 	}
 
 }

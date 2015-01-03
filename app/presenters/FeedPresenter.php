@@ -22,14 +22,6 @@ class FeedPresenter extends BasePresenter
 
 
 
-	protected function startup()
-	{
-		parent::startup();
-//		Debugger::$productionMode = TRUE;
-	}
-
-
-
 	public function renderFavorites()
 	{
 		$this->template->title = 'Favorites of @' . $this->twitter->getUser()->screen_name;

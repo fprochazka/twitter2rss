@@ -1,17 +1,13 @@
 {
-	"name": "nette/sandbox",
-	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
-	"homepage": "http://nette.org",
+	"name": "fprochazka/twitter2rss",
+	"description": "This application creates RSS feeds from your user profile.",
+	"homepage": "https://github.com/fprochazka/twitter2rss",
 	"type": "project",
 	"license": ["Unlicense"],
 	"authors": [
 		{
-			"name": "David Grudl",
+			"name": "Filip Procházka",
 			"homepage": "http://davidgrudl.com"
-		},
-		{
-			"name": "Nette Community",
-			"homepage": "http://nette.org/contributors"
 		}
 	],
 	"require": {
@@ -21,6 +17,5 @@
 	},
 	"require-dev": {
 		"nette/tester": "~1.0"
-	},
-	"minimum-stability": "stable"
+	}
 }

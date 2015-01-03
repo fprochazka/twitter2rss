@@ -1,35 +1,24 @@
-Nette Sandbox
+fprochazka/twitter2rss
 =============
 
-Sandbox is a pre-packaged and pre-configured Nette Framework application
-that you can use as the skeleton for your new applications.
-
-[Nette](http://nette.org) is a popular tool for PHP web development.
-It is designed to be the most usable and friendliest as possible. It focuses
-on security and performance and is definitely one of the safest PHP frameworks.
+This application creates RSS feeds from your user profile.
+It's just a quickly hacked prototype using a great lib [dg/twitter-php](https://github.com/dg/twitter-php).
 
 
 Installing
 ----------
 
-The best way to install Sandbox is using Composer. If you don't have Composer yet, download
-it following [the instructions](http://doc.nette.org/composer). Then use command:
-
-		composer create-project nette/sandbox my-app
-		cd my-app
-
-Make directories `temp` and `log` writable. Navigate your browser
-to the `www` directory and you will see a welcome page. PHP 5.4 allows
-you run `php -S localhost:8888 -t www` to start the web server and
-then visit `http://localhost:8888` in your browser.
-
-It is CRITICAL that whole `app`, `log` and `temp` directories are NOT accessible
-directly via a web browser! See [security warning](http://nette.org/security-warning).
+- Just clone this repository
+- Run `composer install`
+- Create empty `app/config/config.local.neon`
+- Fill in `twitter` parameters, that you can get by creating your Twitter application [apps.twitter.com](https://apps.twitter.com/). Don't forget to create access token.
+- Profit
 
 
-License
--------
-- Nette: New BSD License or GPL 2.0 or 3.0 (http://nette.org/license)
-- jQuery: MIT License (https://jquery.org/license)
-- Adminer: Apache License 2.0 or GPL 2 (http://www.adminer.org)
-- Sandbox: The Unlicense (http://unlicense.org)
+Todo
+----
+
+- simple token-parameter-based auth, so the feeds are at least a tiny bit protected
+- feeds for lists
+- feeds for timeline
+- feeds for provided username

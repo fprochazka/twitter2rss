@@ -49,6 +49,23 @@ class FeedPresenter extends BasePresenter
 			return Nette\Utils\DateTime::from($date)->format(\Datetime::RSS);
 		});
 		$latte->addFilter('tweet', function ($text, $tweet) {
+			$text = \Twitter::clickable($tweet);
+
+			if (isset($tweet->extended_entities->media)) {
+				foreach ($tweet->extended_entities->media as $media) {
+					if ($media->type !== 'photo') {
+						continue;
+					}
+
+					$text .= '<br /><br />' . Nette\Utils\Html::el('img', [
+						'src' => $media->media_url_https,
+						'alt' => 'pic.twitter.com/N3LU65n3fC',
+						'width' => $media->sizes->large->w,
+						'height' => $media->sizes->large->h
+					]);
+				}
+			}
+
 			return $text;
 		});
 	}

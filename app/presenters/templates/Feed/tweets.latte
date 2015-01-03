@@ -11,8 +11,8 @@
 		<item n:foreach="$tweets as $tweet">
 			<title>@{$tweet->user->screen_name}: {$tweet->text|truncate:50|strip}</title>
 			<pubDate>{$tweet->created_at|rssDate}</pubDate>
-			<link></link>
-			<description>{$tweet->text|tweet:$tweet}</description>
+			<link>{if empty($tweet->entities->urls)}https://twitter.com/ProchazkaFilip/status/{$tweet->id_str}{else}{$tweet->entities->urls[0]->expanded_url}{/if}</link>
+			<description>{$tweet->text|tweet:$tweet|noescape|nl2br|escape}</description>
 			<dc:creator>{$tweet->user->name} @{$tweet->user->screen_name}</dc:creator>
 			<guid>https://twitter.com/ProchazkaFilip/status/{$tweet->id_str}</guid>
 		</item>

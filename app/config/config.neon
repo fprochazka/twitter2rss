@@ -1,0 +1,37 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+parameters:
+	twitter:
+		consumerKey:
+		consumerSecret:
+		accessToken:
+		accessTokenSecret:
+
+
+php:
+	date.timezone: Europe/Prague
+
+
+nette:
+	application:
+		errorPresenter: Error
+		mapping:
+			*: App\*Module\Presenters\*Presenter
+
+	session:
+		expiration: 14 days
+
+
+services:
+	router: App\RouterFactory::createRouter
+
+	twitterClient:
+		class: Twitter(%twitter.consumerKey%, %twitter.consumerSecret%, %twitter.accessToken%, %twitter.accessTokenSecret%)
+		setup:
+			- "$service::$cacheDir = ?"(%tempDir%/twitter-cache)
+
+	- App\Twitter()

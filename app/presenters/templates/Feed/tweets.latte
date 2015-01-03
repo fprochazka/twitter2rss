@@ -1,0 +1,21 @@
+{contentType application/xml}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<lastBuildDate>{='now'|rssDate}</lastBuildDate>
+		<link>{plink //this}</link>
+		<title>{$title}</title>
+		<description>Co se nevešlo na Twitter</description>
+		<atom:link href="{plink //this}" rel="self" type="application/rss+xml"/>
+
+		<item n:foreach="$tweets as $tweet">
+			{*{?dump($tweet)}*}
+			<title>@{$tweet->user->screen_name}: {$tweet->text|truncate:50|strip}</title>
+			<pubDate>{$tweet->created_at|rssDate}</pubDate>
+			<link></link>
+			<description>{$tweet->text|tweet:$tweet}</description>
+			<dc:creator>{$tweet->user->name} @{$tweet->user->screen_name}</dc:creator>
+			<guid>https://twitter.com/ProchazkaFilip/status/{$tweet->id_str}</guid>
+		</item>
+	</channel>
+</rss>
